@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS Files/index.css">
+    <link rel="stylesheet" href="CSS Files/slider.css">
+    <link rel="stylesheet" href="CSS Files/Info.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="left" style="font-size: 40px; font-family: cursive">
+           Let's Explore
+        </div>
+        <div class="mid">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Destination</li>
+                <li>Pages</li>
+                <li>Blog</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="right">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </header>
+    <section>
+        <div class="slider">
+            <div class="slide">
+                <img src="assets/greece.jpg" class="active" alt="" height="600px" width="100%">
+                <span class="cityName">Greece</span>
+                <button class="explore">Explore Now</button>
+            </div>
+            <div class="slide">
+                <img src="assets/indonesia.jpg" alt="" height="600px" width="100%">
+                <span class="cityName">Indonesia</span>
+                <button class="explore">Explore Now</button>
+            </div>
+            <div class="slide">
+                <img src="assets/australia.jpg" alt="" height="600px" width="100%">
+                <span class="cityName">Australia</span>
+                <button class="explore">Explore Now</button>
+            </div>
+            <div class="slide">
+                <img src="assets/italy.jpg" alt="" height="600px" width="100%">
+                <span class="cityName">Italy</span>
+                <button class="explore">Explore Now</button>
+            </div>
+            <div class="slide">
+                <img src="assets/singapore.jpg" alt="" height="600px" width="100%">
+                <span class="cityName">Singapore</span>
+                <button class="explore">Explore Now</button>
+            </div>
+            <div class="slide">
+                <img src="assets/switzerland.jpg" alt="" height="600px" width="100%">
+                <span class="cityName">Switzerland</span>
+                <button class="explore">Explore Now</button>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="leftBtn"><i class="fa-solid fa-chevron-left"></i></div>
+            <div class="rightBtn"><i class="fa-solid fa-chevron-right"></i></div>
+        </div>
+    </section>
+    <div class="Information">
+        <div class="info">
+            <form action="" class="form">
+                <div class="inputField">
+                    <input type="text" name="" id="" placeholder="From">
+                    <i class="fa-solid fa-plane-up"></i>
+                </div>
+                <div class="inputField">
+                    <input type="text" name="" id="" placeholder="To">
+                    <i class="fa-solid fa-plane fa-rotate-90"></i>
+                </div>
+                <div class="inputField">
+                    <input type="date" name="" id="" style="color: gray;" placeholder="2019/09/30">
+                </div>
+                <div class="inputField">
+                    <input type="text" name="" id="" placeholder="Passengers">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide')
+        const prev = document.querySelector('.leftBtn')
+        const next = document.querySelector('.rightBtn')
+
+        let slideIndex = 0;
+        slides[slideIndex].classList.add('active');
+
+
+        prev.addEventListener('click', prevSlide)
+        next.addEventListener('click', nextSlide)
+
+        function prevSlide() {
+            slides[slideIndex].classList.remove('active')
+            slideIndex = (slideIndex === 0) ? slides.length - 1 : slideIndex - 1;
+            slides[slideIndex].classList.add('active');
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+        function nextSlide() {
+            slides[slideIndex].classList.remove('active')
+            slideIndex = (slideIndex === slides.length - 1) ? 0 : slideIndex + 1;
+            slides[slideIndex].classList.add('active');
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+    </script>
+</body>
+
+</html>
